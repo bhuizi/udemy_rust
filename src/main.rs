@@ -1,37 +1,21 @@
+use std::io;
+
 fn main() {
 
-    // Unsigned integer can hold only positive value.print.
-    //Signed integer can hold both positive and negative value.
+    // String value
+    // println!("enter a value");
 
-    // let a=10;
-    // let _b:i64 = 10;
-    // let c:u32 = 15;
+    // let mut input = String::new();
+    // io::stdin().read_line(&mut input).expect("error found");
 
-    // println!("value of a variable {}", a);
-    // println!("value of _b variable {}", _b);
-    // println!("value of c variable {}", c);
+    // println!("value entered by user is {}", input);
 
-    // Floating point
-    // let a=3.14;
-    // let _b:f32 = 2.14;
-    // let _c:f64 = 5.21;
+    println!("enter a value");
 
-    // println!("value of a {}", a);
-    // println!("value of _b {}", _b);
-    // println!("value of _c {}", _c);
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("error found");
 
-    // Boolean
-    // let a = true;
-    // let b:bool = false;
+    let input:i32 = input.trim().parse().expect("incorrect value entered by user");
 
-    // println!("value of a {}", a);
-    // println!("value of b {}", b);
-
-    // Character/String
-
-    let a='A';
-    let b="Hello";
-
-    println!("value of a {}", a);
-    println!("value of b {}", b);
+    println!("value entered by user is {}", input);
 }
