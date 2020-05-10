@@ -1,21 +1,21 @@
-use std::io;
 
 fn main() {
 
-    // String value
-    // println!("enter a value");
+    // Operators
+    // let a = 2 + 2 * 3 / 2;
 
-    // let mut input = String::new();
-    // io::stdin().read_line(&mut input).expect("error found");
+    // println!("value is : {}", a);
 
-    // println!("value entered by user is {}", input);
+    // let b = 10;
+    // let c = 10;
 
-    println!("enter a value");
+    // let d = b == c;
 
-    let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("error found");
+    // println!("value is : {}", d);
 
-    let input:i32 = input.trim().parse().expect("incorrect value entered by user");
+    let mut a = 4;
 
-    println!("value entered by user is {}", input);
+    a+=2;
+
+    println!("value is : {}", a);
 }
