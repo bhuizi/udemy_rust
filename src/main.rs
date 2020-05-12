@@ -2,18 +2,26 @@ use std::io;
 
 fn main() {
 
-    println!("Enter a value");
-    let mut input = String::new();
-    io::stdin().read_line(&mut input).expect("error found");
-    let input:i32 = input.trim().parse().expect("incorrect value entered by user");
+    println!("Enter a gender:");
+    let mut gender_input = String::new();
+    io::stdin().read_line(&mut gender_input).expect("error found");
+    let value = gender_input.trim();
 
-    if input < 0 {
-        println!("value is negative");
-    }
-    else if input > 0 {
-        println!("value is positive");
+    if value == "Male" {
+        println!("Enter age: ");
+        let mut age = String::new();
+        io::stdin().read_line(&mut age).expect("error found");
+        let age:i32 = age.trim().parse().expect("no value found");
+
+        if age < 19 {
+
+            println!("Qualified Men U-19 Team");
+        }
+        else {
+            println!("Not qualified");
+        }
     }
     else {
-        println!("value is zero")
+        println!("Not Qualified");
     }
 }
