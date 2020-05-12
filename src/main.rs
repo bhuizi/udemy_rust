@@ -1,21 +1,19 @@
+use std::io;
 
 fn main() {
 
-    // Operators
-    // let a = 2 + 2 * 3 / 2;
+    println!("Enter a value");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("error found");
+    let input:i32 = input.trim().parse().expect("incorrect value entered by user");
 
-    // println!("value is : {}", a);
-
-    // let b = 10;
-    // let c = 10;
-
-    // let d = b == c;
-
-    // println!("value is : {}", d);
-
-    let mut a = 4;
-
-    a+=2;
-
-    println!("value is : {}", a);
+    if input < 0 {
+        println!("value is negative");
+    }
+    else if input > 0 {
+        println!("value is positive");
+    }
+    else {
+        println!("value is zero")
+    }
 }
