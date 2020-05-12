@@ -1,27 +1,17 @@
-use std::io;
 
 fn main() {
 
-    println!("Enter a gender:");
-    let mut gender_input = String::new();
-    io::stdin().read_line(&mut gender_input).expect("error found");
-    let value = gender_input.trim();
+    let side_one = 10;
+    let side_two = 10;
+    let side_three = 10;
 
-    if value == "Male" {
-        println!("Enter age: ");
-        let mut age = String::new();
-        io::stdin().read_line(&mut age).expect("error found");
-        let age:i32 = age.trim().parse().expect("no value found");
-
-        if age < 19 {
-
-            println!("Qualified Men U-19 Team");
-        }
-        else {
-            println!("Not qualified");
-        }
+    if side_one == side_two && side_two == side_three {
+        println!("It's an equilateral triangle");
+    }
+    else if side_one == side_two || side_two == side_three {
+        println!("It's an isosceles triangle");
     }
     else {
-        println!("Not Qualified");
+        println!("It's a Scalene triangle");
     }
 }
