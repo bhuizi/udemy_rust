@@ -1,17 +1,23 @@
 
 fn main() {
 
-    let side_one = 10;
-    let side_two = 10;
-    let side_three = 10;
+    // for i in 0..5 {
+    //     println!("value of is is: {}", i);
+    // }
 
-    if side_one == side_two && side_two == side_three {
-        println!("It's an equilateral triangle");
-    }
-    else if side_one == side_two || side_two == side_three {
-        println!("It's an isosceles triangle");
-    }
-    else {
-        println!("It's a Scalene triangle");
+    // Print 5 rows and 10 stars
+
+    // for row in 0..5 {
+    //     for stars in 0..10 {
+    //         print!("*");
+    //     }
+    //     println!();
+    // }
+
+    for row in 0..5 {
+        for stars in 0..row + 1 {
+            print!("*");
+        }
+        println!();
     }
 }
