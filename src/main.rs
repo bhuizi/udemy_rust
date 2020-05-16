@@ -1,13 +1,21 @@
+fn divide(numerator: f64, denominator: f64)->Option<f64> {
+    if denominator == 0.0 {
+        None
+    }
+    else {
+        Some(numerator/denominator)
+    }
+}
 
 fn main() {
 
-    let mut number = 5;
+    // let result = divide(3.0, 2.0);
+    let result = divide(3.0, 1.0);
 
-    match number {
-        1 => println!("number is one"),
-        2 => println!("number is two"),
-        3 | 5 => println!("number is: {}", number),
-        10..=20 => println!("number is: {}", number),
-        _ => println!("nothing has matched")
+    // println!("Result is {:?}", result);
+
+    match result {
+        Some(x) => println!("value is: {}", x),
+        None => println!("Cannot divide by 0"),
     }
 }
