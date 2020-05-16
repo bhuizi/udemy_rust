@@ -1,15 +1,13 @@
 
 fn main() {
 
-    let mut n = 1;
+    let mut number = 5;
 
-    while n <= 10 {
-        if n % 2 == 0 {
-            println!("even number is: {}", n);
-        }
-        else {
-            println!("odd number is: {}", n);
-        }
-        n = n + 1;
+    match number {
+        1 => println!("number is one"),
+        2 => println!("number is two"),
+        3 | 5 => println!("number is: {}", number),
+        10..=20 => println!("number is: {}", number),
+        _ => println!("nothing has matched")
     }
 }
