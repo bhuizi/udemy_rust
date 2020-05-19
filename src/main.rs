@@ -1,33 +1,24 @@
+
+// fn sum (a:i32, b:i32) {
+//     let total = a + b;
+//     println!("sum is: {}", total);
+// }
+
+fn max (a:i32, b:i32, c:i32)->i32 {
+    if a > b && a > c {
+        return a;
+    }
+    else if b > a && b > c {
+        return b;
+    }
+    else {
+        return c;
+    }
+}
+
 fn main() {
 
-    let mut result:Option<i32> = Some(0);
-
-    while let Some(i) = result {
-        if i > 9 {
-            println!("value is greater then 9");
-            result = None;
-        }
-        else {
-            println!("value is less then 9");
-            result = Some(i + 1);
-        }
-
-    }
-    // loop {
-    //     match result {
-    //         Some(i) => {
-    //             if i > 9 {
-    //                 println!("value is greater then 9");
-    //                 result = None;
-    //             }
-    //             else {
-    //                 println!("value is less then 9");
-    //                 result = Some(i + 1);
-    //             }
-    //         },
-    //         None => {
-    //             break;
-    //         }
-    //     }
-    // }
+    // sum(10, 10);
+    let value = max(50, 20, 30);
+    println!("max value is: {}", value);
 }
