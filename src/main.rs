@@ -1,30 +1,11 @@
-fn odd_num(i:i32)-> bool {
-
-    return i % 2 == 1;
+fn diverge()->! {
+    panic!("Problem Occurred");
 }
-
 
 fn main() {
 
-    let limit = 1000;
-    let mut sum = 0;
+    diverge();
 
-    for i in 0.. {
-        let square = i * i;
-        if square > limit {
-            break;
-        }
-        else if odd_num(square){
-            sum = sum + square;
-        }
-    }
-    println!("find sum off all squared odd numbers under 1000: {}", sum);
+    println!("This line wont be reached");
 
-    let sum_odd_square=(0..)
-        .map(|n|n*n)
-        .take_while(|&square|square < limit)
-        .filter(|&square|odd_num(square))
-        .fold(0,|sum, square|sum + square);
-
-    println!("find sum off all squared odd numbers under 1000: {}", sum_odd_square);
 }
