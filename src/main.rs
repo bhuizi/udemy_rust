@@ -1,23 +1,9 @@
-
-mod programming {
-
-    pub fn rust(){
-        println!("Welcome to Rust Language");
-    }
-
-    pub fn c_plus_plus() {
-        println!("Welcome to C++ Language");
-    }
-
-    pub mod data_base {
-        pub fn sql() {
-            println!("Welcome to SQL Language");
-        }
-    }
-}
-
 fn main() {
-    programming::rust();
-    programming::c_plus_plus();
-    programming::data_base::sql();
+
+    let array:[i32; 5] = [2, 3, 4, 5, 8];
+
+    // println!("first value of an array is: {}", array[0]);
+    for i in 0..5 {
+        println!("value of array is: {}", array[i]);
+    }
 }
