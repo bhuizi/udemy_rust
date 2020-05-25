@@ -1,18 +1,28 @@
+struct Rectangle {
+    width: i32,
+    height: i32
+}
+
+//tuple
+struct Triangle(i32, i32, i32);
+
+fn area(rectangle:&Rectangle)->i32 {
+    let area = rectangle.width * rectangle.height;
+    return area;
+}
+
 fn main() {
 
-    // let a = vec![1, 2, 3, 4];
-    // println!("value is: {}", a[2]);
+    let value = Rectangle{width:60, height:70};
+    let sides = Triangle(10, 20, 30);
 
-    // for i in a {
-    //     println!("value is: {}", i)
-    // }
+    println!("Rectangle width: {}", value.width);
+    println!("Rectangle height: {}", value.height);
 
-    let mut b = vec![1, 2, 3, 4];
-    b.push(10);
+    println!("Triangle 0 index: {}", sides.0);
+    println!("Triangle 0 index: {}", sides.1);
 
-    for i in &b {
-        println!("value is: {}", i);
-    }
+    let rec_1 = area(&value);
 
-    println!("length of vector is: {}", b.len());
+    println!("Area of a rectangle is: {}", rec_1);
 }
