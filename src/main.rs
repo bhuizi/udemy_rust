@@ -3,26 +3,36 @@ struct Rectangle {
     height: i32
 }
 
-//tuple
-struct Triangle(i32, i32, i32);
+struct Triangle {
+    side_1: i32,
+    side_2: i32,
+    side_3: i32
+}
 
-fn area(rectangle:&Rectangle)->i32 {
-    let area = rectangle.width * rectangle.height;
-    return area;
+impl Rectangle {
+    fn area(&self){
+        println!("Area of rectangle: {}", self.width * self.height);
+    }
+    fn sum_rectangle(&self){
+        println!("Sum of side of rectangle: {}", 2 * self.width + 2 * self.height );
+    }
+}
+
+impl Triangle {
+    fn sum_triangle(&self) {
+        println!("Sum of sides of triangle:{}", self.side_1 + self.side_2 + self.side_3);
+    }
 }
 
 fn main() {
 
-    let value = Rectangle{width:60, height:70};
-    let sides = Triangle(10, 20, 30);
+    let rec = Rectangle{width: 50, height: 70};
 
-    println!("Rectangle width: {}", value.width);
-    println!("Rectangle height: {}", value.height);
+    rec.area();
 
-    println!("Triangle 0 index: {}", sides.0);
-    println!("Triangle 0 index: {}", sides.1);
+    rec.sum_rectangle();
 
-    let rec_1 = area(&value);
+    let tri = Triangle{side_1: 10, side_2: 30, side_3: 40};
 
-    println!("Area of a rectangle is: {}", rec_1);
+    tri.sum_triangle();
 }
