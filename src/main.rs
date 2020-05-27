@@ -1,50 +1,22 @@
-trait Shape {
-    fn area(&self)->f64;
+#[derive(Debug,Clone)]
+// #[derive(Debug,Clone, Copy)]
+
+struct A {
+    x: i32
 }
 
-trait Addition<T> {
-    fn add(&self)->T;
+struct B {
+    y: i32
 }
 
-struct Rectangle {
-    x: f64,
-    y: f64
-}
+fn main() {
 
-struct Circle {
-    radius: f64
-}
+    let _a = A{x: 10};
+    let _b = B{y: 20};
 
-impl Shape for Rectangle {
-    fn area(&self)->f64 {
-        self.x * self.y
-    }
-}
+    let _c = _a.clone();
+    // with Copy
+    // let _c = _a;
 
-impl Shape for Circle {
-    fn area(&self)->f64 {
-        self.radius * self.radius * std::f64::consts::PI
-    }
-}
-
-impl Addition<i32> for Vec<i32> {
-    fn add(&self)->i32 {
-        let mut result = 0;
-
-        for i in self {
-            result = result + i;
-        }
-        return result;
-    }
-}
-
-fn main () {
-
-    let rec = Rectangle{x: 10.24, y: 15.54};
-    let circ = Circle{radius: 2.24};
-    let arr = vec![1, 2, 3, 4, 5];
-
-    println!("area of rectangle is: {}", rec.area());
-    println!("area of circle is: {}", circ.area());
-    println!("{}", arr.add());
+    println!("{:?}", _a);
 }
