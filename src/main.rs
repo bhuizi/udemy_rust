@@ -1,38 +1,50 @@
+trait Shape {
+    fn area(&self)->f64;
+}
+
+trait Addition<T> {
+    fn add(&self)->T;
+}
+
 struct Rectangle {
-    width: i32,
-    height: i32
+    x: f64,
+    y: f64
 }
 
-struct Triangle {
-    side_1: i32,
-    side_2: i32,
-    side_3: i32
+struct Circle {
+    radius: f64
 }
 
-impl Rectangle {
-    fn area(&self){
-        println!("Area of rectangle: {}", self.width * self.height);
-    }
-    fn sum_rectangle(&self){
-        println!("Sum of side of rectangle: {}", 2 * self.width + 2 * self.height );
+impl Shape for Rectangle {
+    fn area(&self)->f64 {
+        self.x * self.y
     }
 }
 
-impl Triangle {
-    fn sum_triangle(&self) {
-        println!("Sum of sides of triangle:{}", self.side_1 + self.side_2 + self.side_3);
+impl Shape for Circle {
+    fn area(&self)->f64 {
+        self.radius * self.radius * std::f64::consts::PI
     }
 }
 
-fn main() {
+impl Addition<i32> for Vec<i32> {
+    fn add(&self)->i32 {
+        let mut result = 0;
 
-    let rec = Rectangle{width: 50, height: 70};
+        for i in self {
+            result = result + i;
+        }
+        return result;
+    }
+}
 
-    rec.area();
+fn main () {
 
-    rec.sum_rectangle();
+    let rec = Rectangle{x: 10.24, y: 15.54};
+    let circ = Circle{radius: 2.24};
+    let arr = vec![1, 2, 3, 4, 5];
 
-    let tri = Triangle{side_1: 10, side_2: 30, side_3: 40};
-
-    tri.sum_triangle();
+    println!("area of rectangle is: {}", rec.area());
+    println!("area of circle is: {}", circ.area());
+    println!("{}", arr.add());
 }
