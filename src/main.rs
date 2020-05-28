@@ -1,25 +1,28 @@
-use std::ops::Add;
 
-#[derive(Debug)]
-
-struct Point {
-    x:i32,
-    y:i32
+trait Foo {
+    fn method(&self)->String;
 }
 
-impl Add for Point {
-    type Output = Point;
-    fn add(self, other:Point)->Point {
-        Point{x:self.x+other.x, y:self.y+other.y}
+impl Foo for i32 {
+ fn method(&self)->String {
+     format!("i32: {}", *self)
+ }
+}
+
+impl Foo for String {
+    fn method(&self)->String {
+        format!("String: {}", *self)
     }
 }
 
+fn bar<T:Foo>(z:T) {
+    println!("{}", z.method());
+}
+
 fn main() {
+    let a = 30;
+    let b = "Hello".to_string();
 
-    let p1 = Point{x:10, y:20};
-    let p2 = Point{x:20, y:30};
-
-    let p3=p1+p2;
-
-    println!("p3 : {:?}", p3);
+    bar(a);
+    bar(b);
 }
