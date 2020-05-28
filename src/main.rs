@@ -1,23 +1,25 @@
-struct Droppable {
-    name: String
+use std::ops::Add;
+
+#[derive(Debug)]
+
+struct Point {
+    x:i32,
+    y:i32
 }
 
-impl Drop for Droppable {
-    fn drop(&mut self) {
-        println!("dropping: {}", self.name);
+impl Add for Point {
+    type Output = Point;
+    fn add(self, other:Point)->Point {
+        Point{x:self.x+other.x, y:self.y+other.y}
     }
 }
 
 fn main() {
-    let a = Droppable{name: "Hello".to_string()};
 
-    {
-        let b = Droppable{name: "Rust".to_string()};
-        {
-            let c = Droppable{name: "C++".to_string()};
-        }
-    }
+    let p1 = Point{x:10, y:20};
+    let p2 = Point{x:20, y:30};
 
+    let p3=p1+p2;
 
-
+    println!("p3 : {:?}", p3);
 }
