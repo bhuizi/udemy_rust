@@ -1,22 +1,23 @@
-#[derive(Debug,Clone)]
-// #[derive(Debug,Clone, Copy)]
-
-struct A {
-    x: i32
+struct Droppable {
+    name: String
 }
 
-struct B {
-    y: i32
+impl Drop for Droppable {
+    fn drop(&mut self) {
+        println!("dropping: {}", self.name);
+    }
 }
 
 fn main() {
+    let a = Droppable{name: "Hello".to_string()};
 
-    let _a = A{x: 10};
-    let _b = B{y: 20};
+    {
+        let b = Droppable{name: "Rust".to_string()};
+        {
+            let c = Droppable{name: "C++".to_string()};
+        }
+    }
 
-    let _c = _a.clone();
-    // with Copy
-    // let _c = _a;
 
-    println!("{:?}", _a);
+
 }
