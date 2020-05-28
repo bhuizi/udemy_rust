@@ -15,14 +15,18 @@ impl Foo for String {
     }
 }
 
-fn bar<T:Foo>(z:T) {
-    println!("{}", z.method());
+fn bar(z:&dyn Foo) {
+    println!("{}", z.method()); 
 }
+
+// fn bar<T:Foo>(z:T) {
+//     println!("{}", z.method());
+// }
 
 fn main() {
     let a = 30;
     let b = "Hello".to_string();
 
-    bar(a);
-    bar(b);
+    bar(&a);
+    bar(&b);
 }
