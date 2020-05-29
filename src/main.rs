@@ -1,13 +1,23 @@
-use std::fmt;
+use std::ops::Mul;
 
-fn something<T:fmt::Debug>(z:T){
-
-    println!("{:?}", z);
+struct Rectangle<T:Mul> {
+    x:T,
+    y:T
 }
 
+trait Shape<T> {
+    fn area(&self)->T;
+}
+
+impl<T:Copy>Shape<T> for Rectangle<T> where T:Mul<Output=T> {
+    fn area(&self)->T {
+        self.x * self.y
+    }
+
+}
 fn main() {
 
-    let a = 10.24;
+    let a = Rectangle{x:10, y:20};
 
-    something(a);
+    println!("Areaf of a Rectangle: {}", a.area());
 }
