@@ -1,32 +1,16 @@
 
-trait Foo {
-    fn method(&self)->String;
+struct Point<T> {
+    x:T,
+    y:T
 }
-
-impl Foo for i32 {
- fn method(&self)->String {
-     format!("i32: {}", *self)
- }
-}
-
-impl Foo for String {
-    fn method(&self)->String {
-        format!("String: {}", *self)
-    }
-}
-
-fn bar(z:&dyn Foo) {
-    println!("{}", z.method()); 
-}
-
-// fn bar<T:Foo>(z:T) {
-//     println!("{}", z.method());
-// }
 
 fn main() {
-    let a = 30;
-    let b = "Hello".to_string();
 
-    bar(&a);
-    bar(&b);
+    let a = Point{x:2, y:2};
+    let b = Point{x:3.34, y:4.32};
+    let c = Point{x:true, y:false};
+
+    println!("x:{}, y:{}", a.x, a.y);
+    println!("x:{}, y:{}", b.x, b.y);
+    println!("x:{}, y:{}", c.x, c.y);
 }
