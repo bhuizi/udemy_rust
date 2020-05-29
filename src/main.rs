@@ -1,13 +1,13 @@
 
-struct Point<T> {
+struct Point<T, V> {
     x:T,
-    y:T
+    y:V
 }
 
 fn main() {
 
     let a = Point{x:2, y:2};
-    let b = Point{x:3.34, y:4.32};
+    let b = Point{x:3.34, y:"hello"};
     let c = Point{x:true, y:false};
 
     println!("x:{}, y:{}", a.x, a.y);
