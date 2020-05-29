@@ -1,23 +1,18 @@
-use std::ops::Mul;
 
-struct Rectangle<T:Mul> {
-    x:T,
-    y:T
+
+fn func(i:i32) ->i32 {
+
+    i + 1
 }
 
-trait Shape<T> {
-    fn area(&self)->T;
-}
-
-impl<T:Copy>Shape<T> for Rectangle<T> where T:Mul<Output=T> {
-    fn area(&self)->T {
-        self.x * self.y
-    }
-
-}
 fn main() {
 
-    let a = Rectangle{x:10, y:20};
+    let i = 10;
 
-    println!("Areaf of a Rectangle: {}", a.area());
+    let closure=|| {
+        i+1
+    };
+
+    println!("value of i is: {}", closure());
+    println!("value of i is: {}, func", func(i));
 }
