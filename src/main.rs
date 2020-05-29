@@ -1,16 +1,13 @@
+use std::fmt;
 
-struct Point<T, V> {
-    x:T,
-    y:V
+fn something<T:fmt::Debug>(z:T){
+
+    println!("{:?}", z);
 }
 
 fn main() {
 
-    let a = Point{x:2, y:2};
-    let b = Point{x:3.34, y:"hello"};
-    let c = Point{x:true, y:false};
+    let a = 10.24;
 
-    println!("x:{}, y:{}", a.x, a.y);
-    println!("x:{}, y:{}", b.x, b.y);
-    println!("x:{}, y:{}", c.x, c.y);
+    something(a);
 }
