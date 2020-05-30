@@ -1,18 +1,13 @@
-
-
-fn func(i:i32) ->i32 {
-
-    i + 1
-}
-
 fn main() {
+    let x = 10;
 
-    let i = 10;
-
-    let closure=|| {
-        i+1
+    let value=|mut x| {
+        x=x+1;
+        println!("value of x: {}", x);
     };
 
-    println!("value of i is: {}", closure());
-    println!("value of i is: {}, func", func(i));
+    value(x);
+
+    println!("value o x:{}", x);
+
 }
