@@ -1,13 +1,23 @@
-fn call<F>(closure:F) where F:FnOnce(){
-    closure();
+enum Day {
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday
+}
+
+impl Day {
+    fn is_weekend(&self)->bool {
+        match self {
+            Day::Saturday | Day::Sunday => true,
+            _=> false
+        }
+    }
 }
 
 fn main() {
-    let mut x = 10;
-
-    let value=|| {
-        x=x+1;
-        println!("value of x: {}", x);
-    };
-    call(value);
+    let d = Day::Sunday;
+    println!("Is it a weekend: {}", d.is_weekend());
 }
