@@ -1,13 +1,12 @@
+fn call<F>(closure:F) where F:Fn(){
+    closure();
+}
+
 fn main() {
     let x = 10;
 
-    let value=|mut x| {
-        x=x+1;
+    let value=|| {
         println!("value of x: {}", x);
     };
-
-    value(x);
-
-    println!("value o x:{}", x);
-
+    call(value);
 }
