@@ -1,24 +1,11 @@
+use std::fs::File;
+use std::io::prelude::*;
+
 fn main() {
-    let message=String::from("welcome to Rust language");
 
-    println!("After replace:{}", message.replace("Rust", "React"));
+    let mut file=File::create("output.txt")
+        .expect("Error in creating a file");
 
-    let split_message=String::from("welcome+to+rust+language");
-
-    let token:Vec<&str>=split_message.split("+").collect();
-
-    println!("{}", token[2]);
-
-    let trim_message=String::from("     welcome to Rust language");
-
-    println!("After trim: {}", trim_message.trim());
-
-    let chars_message=String::from("welcome to Rust language");
-
-    match chars_message.chars().nth(2) {
-        Some(value) => println!("character found a second index: {}", value),
-        // _=> println!("character not found")
-        None=> println!("character not found")
-    }
-
+    file.write_all(b"Welcome to Rust programming language")
+        .expect("Error in writing a file");
 }
