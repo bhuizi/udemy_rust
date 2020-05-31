@@ -1,19 +1,24 @@
 fn main() {
+    let message=String::from("welcome to Rust language");
 
-    let mut d = String::from("hello world");
+    println!("After replace:{}", message.replace("Rust", "React"));
 
-    println!("length of this string is: {}", d.len());
+    let split_message=String::from("welcome+to+rust+language");
 
-    // single char
-    // d.push('w');
+    let token:Vec<&str>=split_message.split("+").collect();
 
-    d.push_str(", welcome to the rust programming language");
+    println!("{}", token[2]);
 
-    println!("message is: {}", d);
+    let trim_message=String::from("     welcome to Rust language");
 
-    for string in d.split_whitespace(){
-        print!("{}", string);
+    println!("After trim: {}", trim_message.trim());
+
+    let chars_message=String::from("welcome to Rust language");
+
+    match chars_message.chars().nth(2) {
+        Some(value) => println!("character found a second index: {}", value),
+        // _=> println!("character not found")
+        None=> println!("character not found")
     }
 
-    print!("does d contain Hello: {} ", d.contains("Hello"));
 }
