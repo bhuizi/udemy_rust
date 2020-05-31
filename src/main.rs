@@ -1,26 +1,19 @@
-use std::collections::HashMap;
-
 fn main() {
-    let mut student=HashMap::new();
 
-    student.insert("A210", "John");
-    student.insert("A211", "Bob");
-    student.insert("A212", "Rock");
-    student.insert("A213", "Kim");
-    student.insert("A214", "Jenny");
+    let mut d = String::from("hello world");
 
-    println!("Number of students: {}", student.len());
+    println!("length of this string is: {}", d.len());
 
-    match student.get("A210") {
-        Some(value)=>println!("value against key is: {}", value),
-        _=> println!("value not found")
+    // single char
+    // d.push('w');
+
+    d.push_str(", welcome to the rust programming language");
+
+    println!("message is: {}", d);
+
+    for string in d.split_whitespace(){
+        print!("{}", string);
     }
 
-    student.insert("A214", "Alex");
-
-    for (key, value) in &student {
-        println!("{}:{}", key, value);
-    }
-
-    println!("value contained in hashmap: {}", student.contains_key("A214"));
+    print!("does d contain Hello: {} ", d.contains("Hello"));
 }
