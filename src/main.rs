@@ -1,4 +1,4 @@
-fn print_sum(v:Vec<i32>) {
+fn print_sum(v:&Vec<i32>) {
     println!("{:?}", v[2] + v[3]);
 }
 
@@ -9,5 +9,7 @@ fn main() {
         v.push(i);
     }
 
-    print_sum(v);
+    print_sum(&v);
+
+    println!("{}", v[3]);
 }
