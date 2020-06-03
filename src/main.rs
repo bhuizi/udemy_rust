@@ -1,15 +1,13 @@
-use std::fs::File;
-use std::io::prelude::*;
+fn print_sum(v:Vec<i32>) {
+    println!("{:?}", v[2] + v[3]);
+}
 
 fn main() {
+    let mut v = Vec::new();
 
-    let mut file=File::open("output.txt")
-        .expect("cannot open file");
+    for i in 1..1000 {
+        v.push(i);
+    }
 
-    let mut content=String::new();
-
-    file.read_to_string(&mut content)
-        .expect("error in reading a file");
-
-    println!("content of file is: {}", content);
+    print_sum(v);
 }
