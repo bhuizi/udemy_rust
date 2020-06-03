@@ -1,20 +1,10 @@
-fn max<'a>(x:&'a i32, y:&'a i32) -> &'a i32 {
-    if *x > *y {
-        x
-    }
-    else {
-        y
-    }
+use crate::List::{Cons, Nil};
+
+enum List {
+    Cons(i32, Box<List>),
+    Nil
 }
 
 fn main() {
-
-    {
-        let a = 10;
-            {
-                let b = 20;
-                let _c = max(&a, &b);
-                println!("{}", _c);
-            }
-    }
+    let _list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
 }
