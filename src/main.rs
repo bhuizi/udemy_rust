@@ -1,15 +1,20 @@
-fn print_sum(v:&Vec<i32>) {
-    println!("{:?}", v[2] + v[3]);
+fn max<'a>(x:&'a i32, y:&'a i32) -> &'a i32 {
+    if *x > *y {
+        x
+    }
+    else {
+        y
+    }
 }
 
 fn main() {
-    let mut v = Vec::new();
 
-    for i in 1..1000 {
-        v.push(i);
+    {
+        let a = 10;
+            {
+                let b = 20;
+                let _c = max(&a, &b);
+                println!("{}", _c);
+            }
     }
-
-    print_sum(&v);
-
-    println!("{}", v[3]);
 }
