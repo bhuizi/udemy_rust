@@ -1,20 +1,12 @@
 use std::thread;
-use std::time::Duration;
 
-fn main () {
+fn main() {
 
-    let handle = thread::spawn(||
-     {
-         for i in 0..10 {
-             println!("new thread:{}", i);
-             thread::sleep(Duration::from_secs(2));
-         }
-     });
+    let v = vec![1, 2, 3];
 
-     for i in 0..5 {
-         println!("main thread:{}", i);
-         thread::sleep(Duration::from_secs(2));
-     }
+    let handle = thread::spawn( move || {
+        println!("vector value is: {:?}", v);
+    });
 
-     handle.join();
+    handle.join();
 }
