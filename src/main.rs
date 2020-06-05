@@ -1,10 +1,14 @@
-use crate::List::{Cons, Nil};
+use std::rc::Rc;
 
-enum List {
-    Cons(i32, Box<List>),
-    Nil
+fn func(x:Rc<String>){
+    println!("{}", x);
 }
 
 fn main() {
-    let _list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
+
+    let a = Rc::new("Hello".to_string());
+
+    func(a.clone());
+
+    println!("{}", a);
 }
