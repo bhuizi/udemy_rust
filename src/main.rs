@@ -1,14 +1,24 @@
 use std::rc::Rc;
 
-fn func(x:Rc<String>){
-    println!("{}", x);
+struct Person {
+    name: Rc<String>
+}
+
+impl Person {
+    fn name(x:Rc<String>) -> Person {
+        Person{name:x}
+    }
 }
 
 fn main() {
 
     let a = Rc::new("Hello".to_string());
 
-    func(a.clone());
+    println!("Number of smart pointers: {}", Rc::strong_count(&a));
+
+    let b = Person::name(a.clone());
 
     println!("{}", a);
+
+    println!("Number of smart pointers: {}", Rc::strong_count(&a));
 }
