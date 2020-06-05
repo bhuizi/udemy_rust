@@ -1,24 +1,12 @@
 use std::rc::Rc;
-
-struct Person {
-    name: Rc<String>
-}
-
-impl Person {
-    fn name(x:Rc<String>) -> Person {
-        Person{name:x}
-    }
-}
-
+use std::cell::RefCell;
 fn main() {
 
-    let a = Rc::new("Hello".to_string());
+    let value = Rc::new(RefCell::new(5));
 
-    println!("Number of smart pointers: {}", Rc::strong_count(&a));
+    let b = Rc::new(Rc::clone(&value));
 
-    let b = Person::name(a.clone());
+    *b.borrow_mut() += 10;
 
-    println!("{}", a);
-
-    println!("Number of smart pointers: {}", Rc::strong_count(&a));
+    println!("{:?}", b);
 }
